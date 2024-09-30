@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Níveis Ambientais</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #4a2626;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #5c3030;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #ffd700;
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .table-container {
+            width: 45%;
+        }
+        .chart-container {
+            width: 50%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ffd700;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #ffd700;
+            color: #4a2626;
+        }
+        .empty-cell {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Níveis Ambientais</h1>
+        <div class="content">
+            <div class="table-container">
+                <table>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Nível PH</th>
+                        <th>Condutividade</th>
+                        <th>CO2</th>
+                    </tr>
+                    <tr><td class="empty-cell" colspan="4"></td></tr>
+                    <tr><td class="empty-cell" colspan="4"></td></tr>
+                    <tr><td class="empty-cell" colspan="4"></td></tr>
+                    <tr><td class="empty-cell" colspan="4"></td></tr>
+                    <tr><td class="empty-cell" colspan="4"></td></tr>
+                    <tr><td class="empty-cell" colspan="4"></td></tr>
+                </table>
+            </div>
+            <div class="chart-container">
+                <canvas id="environmentalChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('environmentalChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Item 1', 'Item 2', 'Item 3'],
+                datasets: [
+                    {
+                        label: 'PH',
+                        data: [3, 8, 16],
+                        backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                    },
+                    {
+                        label: 'Condutividade',
+                        data: [6, 14, 18],
+                        backgroundColor: 'rgba(255, 206, 86, 0.8)',
+                    },
+                    {
+                        label: 'CO2',
+                        data: [9, 10, 25],
+                        backgroundColor: 'rgba(255, 159, 64, 0.8)',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 25,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

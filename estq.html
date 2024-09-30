@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Estoque</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #4a2626;
+            color: #ffd700;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .chart-container {
+            margin-bottom: 30px;
+        }
+        .pie-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pie-chart {
+            width: 40%;
+        }
+        .alert {
+            width: 50%;
+            text-align: center;
+        }
+        .alert-icon {
+            font-size: 48px;
+            color: #ff0000;
+        }
+        .alert-text {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Controle de Estoque</h1>
+        <h2>Estoque Anual</h2>
+        <div class="chart-container">
+            <canvas id="stockChart"></canvas>
+        </div>
+        <div class="pie-section">
+            <div class="pie-chart">
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="alert">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-text">
+                    <strong>20% de seus produtos se encontram abaixo do estoque mínimo.</strong><br>
+                    Faça os pedidos imediatamente!!!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Line Chart
+        const ctx = document.getElementById('stockChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Maio', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                datasets: [{
+                    label: 'Estoque',
+                    data: [2, 4, 5, 8, 10, 15, 17, 19, 22, 25, 28, 30],
+                    borderColor: '#ffd700',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#ffd700'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.1)'
+                        },
+                        ticks: {
+                            color: '#ffd700'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffd700'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Pie Chart
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Acima do estoque mínimo', 'Abaixo do estoque mínimo'],
+                datasets: [{
+                    data: [80, 20],
+                    backgroundColor: ['#ffd700', '#ff6347']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#ffd700'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
