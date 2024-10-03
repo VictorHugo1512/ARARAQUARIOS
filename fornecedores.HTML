@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="forncedores.css">
+    <title>Cadastro de Fornecedores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h1 {
+            color: #8B4513;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+            border: none;
+            background-color: #DAA520;
+            color: white;
+        }
+        input::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Cadastro de Fornecedores</h1>
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        
+        <label for="cnpj">CNPJ</label>
+        <input type="text" id="cnpj" name="cnpj" required>
+        
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" name="endereco" required>
+        
+        <label for="telefone">Telefone</label>
+        <input type="tel" id="telefone" name="telefone" required>
+    </form>
+</body>
+</html>
