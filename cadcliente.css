@@ -1,0 +1,54 @@
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #9b59b6, #f39c12);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 1em;
+            width: 100px;
+            height: 100px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .voltar {
+            background-color: #f39c12;
+            color: white;
+        }
+        .cadastrar {
+            background-color: #9b59b6;
+            color: white;
+        }
